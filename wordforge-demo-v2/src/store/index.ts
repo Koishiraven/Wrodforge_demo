@@ -55,6 +55,66 @@ const initialNodes: Node<NodeData>[] = [
       fields: { age: '15', traits: '倔强, 勇敢', goal: '寻找身世', secret: '随身玉佩' }
     },
   },
+  {
+    id: 'role-2',
+    type: 'customCard',
+    position: { x: 350, y: 100 },
+    data: {
+      id: 'role-2',
+      type: 'role',
+      title: '小瑶',
+      content: '灵动活泼的神秘少女',
+      fields: { age: '14', traits: '活泼, 机智', goal: '逃离束缚', secret: '神秘笛子' }
+    },
+  },
+  {
+    id: 'scene-1',
+    type: 'customCard',
+    position: { x: 100, y: 300 },
+    data: {
+      id: 'scene-1',
+      type: 'scene',
+      title: '幽风谷',
+      content: '常年被迷雾笼罩的幽深山谷',
+      fields: { weather: '阴冷', atmosphere: '神秘', keyItems: '古老石刻' }
+    },
+  },
+  {
+    id: 'plot-3',
+    type: 'customCard',
+    position: { x: 100, y: 550 },
+    data: {
+      id: 'plot-3',
+      type: 'plot',
+      title: '突遇伏击',
+      content: '李风和小瑶在谷口遭遇了一群不明身份的黑衣人。',
+      fields: {},
+    },
+  },
+  {
+    id: 'plot-4',
+    type: 'customCard',
+    position: { x: 350, y: 550 },
+    data: {
+      id: 'plot-4',
+      type: 'plot',
+      title: '逃出生天',
+      content: '在混乱中，两人跳下了悬崖，落入了湍急的河流。',
+      fields: {},
+    },
+  },
+  {
+    id: 'plot-5',
+    type: 'customCard',
+    position: { x: 600, y: 550 },
+    data: {
+      id: 'plot-5',
+      type: 'plot',
+      title: '河边的苏醒',
+      content: '李风在一片沙滩上醒来，发现小瑶就在不远处，但神志不清。',
+      fields: {},
+    },
+  },
 ];
 
 // 初始化一些情节数据，即使初始时它们可能在章节里
@@ -80,6 +140,42 @@ const initialPlots: Node<NodeData>[] = [
       type: 'plot',
       title: '小瑶的加入',
       content: '小瑶偷偷跟着李风来到了洞穴。',
+      fields: {},
+    },
+  },
+  {
+    id: 'plot-3',
+    type: 'customCard',
+    position: { x: 100, y: 550 },
+    data: {
+      id: 'plot-3',
+      type: 'plot',
+      title: '突遇伏击',
+      content: '李风和小瑶在谷口遭遇了一群不明身份的黑衣人。',
+      fields: {},
+    },
+  },
+  {
+    id: 'plot-4',
+    type: 'customCard',
+    position: { x: 350, y: 550 },
+    data: {
+      id: 'plot-4',
+      type: 'plot',
+      title: '逃出生天',
+      content: '在混乱中，两人跳下了悬崖，落入了湍急的河流。',
+      fields: {},
+    },
+  },
+  {
+    id: 'plot-5',
+    type: 'customCard',
+    position: { x: 600, y: 550 },
+    data: {
+      id: 'plot-5',
+      type: 'plot',
+      title: '河边的苏醒',
+      content: '李风在一片沙滩上醒来，发现小瑶就在不远处，但神志不清。',
       fields: {},
     },
   },

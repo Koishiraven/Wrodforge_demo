@@ -80,10 +80,10 @@ export default function SidePanel() {
   };
 
   return (
-    <div className="flex h-full w-80 flex-col border-l border-gray-200 bg-white shadow-xl">
+    <div className="flex h-full w-80 flex-col border-l border-[#d1cec5] bg-[#fffef9] shadow-xl">
       {/* 顶部 Tab / 标题 */}
-      <div className="bg-gray-50 px-4 py-3 border-b border-gray-200">
-        <h2 className="font-bold text-gray-700">
+      <div className="bg-[#f7f5f0] px-4 py-3 border-b border-[#d1cec5]">
+        <h2 className="font-bold text-[#2c2c2c]">
           {selectedNode ? '编辑卡片' : '创作面板'}
         </h2>
       </div>
@@ -199,17 +199,19 @@ export default function SidePanel() {
               disabled={basketCards.length === 0 || isGenerating}
               className={`flex w-full items-center justify-center gap-2 rounded-lg py-2.5 font-bold text-white shadow-sm transition-all ${
                 basketCards.length === 0 || isGenerating
-                  ? 'cursor-not-allowed bg-gray-300'
-                  : 'bg-gradient-to-r from-purple-600 to-blue-600 hover:shadow-md active:scale-95'
+                  ? 'bg-gray-300 cursor-not-allowed'
+                  : 'bg-[#2c2c2c] hover:bg-black hover:shadow-md'
               }`}
             >
               {isGenerating ? (
                 <>
-                  <RefreshCw size={18} className="animate-spin" /> 生成中...
+                  <Loader2 className="animate-spin" size={18} />
+                  AI 正在构思...
                 </>
               ) : (
                 <>
-                  <Send size={18} /> 生成情节
+                  <Send size={18} />
+                  开始生成情节
                 </>
               )}
             </button>
@@ -224,24 +226,24 @@ export default function SidePanel() {
             
             {/* 生成结果预览 */}
             {generatedResult && (
-                <div className="rounded-lg border border-green-200 bg-green-50 p-3 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <div className="rounded-lg border border-[#cce0cc] bg-[#eff5ef] p-3 animate-in fade-in slide-in-from-bottom-4 duration-500">
                     <div className="flex justify-between items-start mb-2">
-                        <h4 className="font-bold text-green-800">{generatedResult.title}</h4>
-                        <span className="text-xs bg-white/50 px-1.5 py-0.5 rounded text-green-700">预览</span>
+                        <h4 className="font-bold text-[#2c2c2c]">{generatedResult.title}</h4>
+                        <span className="text-xs bg-white/50 px-1.5 py-0.5 rounded text-[#5d5d5d]">预览</span>
                     </div>
-                    <p className="text-sm text-gray-700 mb-3 leading-relaxed">
+                    <p className="text-sm text-[#2c2c2c] mb-3 leading-relaxed font-serif">
                         {generatedResult.content}
                     </p>
                     <div className="flex gap-2">
                         <button 
                             onClick={handleAdopt}
-                            className="flex-1 bg-green-600 text-white text-xs py-1.5 rounded hover:bg-green-700 font-medium"
+                            className="flex-1 bg-[#2c2c2c] text-white text-xs py-1.5 rounded hover:bg-black font-medium"
                         >
                             采纳并放入画布
                         </button>
                         <button 
                             onClick={handleGenerate}
-                            className="px-3 bg-white border border-green-200 text-green-700 text-xs py-1.5 rounded hover:bg-green-100"
+                            className="px-3 bg-white border border-[#d1cec5] text-[#5d5d5d] text-xs py-1.5 rounded hover:bg-[#f7f5f0]"
                         >
                             重试
                         </button>

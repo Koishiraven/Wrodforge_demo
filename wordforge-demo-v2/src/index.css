@@ -1,7 +1,17 @@
 @import "tailwindcss";
 
+:root {
+  --ink-bg: #f7f5f0;
+  --ink-paper: #fffef9;
+  --ink-text: #2c2c2c;
+  --ink-border: #d1cec5;
+}
+
 html, body, #root {
   height: 100%;
   margin: 0;
   overflow: hidden;
+  background-color: var(--ink-bg);
+  font-family: "Songti SC", "SimSun", "STSong", "Noto Serif SC", serif;
+  color: var(--ink-text);
 }

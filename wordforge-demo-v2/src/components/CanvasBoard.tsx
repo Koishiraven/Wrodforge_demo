@@ -83,7 +83,7 @@ const CanvasContent = () => {
   );
 
   return (
-    <div className="h-full w-full bg-gray-50">
+    <div className="h-full w-full bg-[#f7f5f0]">
       <ReactFlow
         nodes={nodes}
         edges={edges}

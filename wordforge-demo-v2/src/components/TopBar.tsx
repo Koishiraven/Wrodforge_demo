@@ -16,17 +16,17 @@ export default function TopBar() {
   };
 
   return (
-    <div className="flex h-14 items-center justify-between border-b border-gray-200 bg-white px-4 shadow-sm z-10 relative">
+    <div className="flex h-14 items-center justify-between border-b border-[#d1cec5] bg-[#fffef9] px-4 shadow-sm z-10 relative">
       <div className="flex items-center gap-4">
-        <h1 className="text-lg font-bold text-gray-800 flex items-center gap-2">
-          <LayoutTemplate className="text-purple-600" />
+        <h1 className="text-lg font-bold text-[#2c2c2c] flex items-center gap-2">
+          <LayoutTemplate className="text-[#8c3b3b]" />
           WordForge Demo
         </h1>
         
         <div className="relative group">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="flex items-center gap-1 rounded-md bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700 transition-colors"
+            className="flex items-center gap-1 rounded-md bg-[#8c3b3b] px-3 py-1.5 text-sm font-medium text-white hover:bg-[#7a3333] transition-colors"
           >
             <Plus size={16} /> 新建卡片
           </button>
@@ -66,7 +66,7 @@ export default function TopBar() {
       <div className="flex items-center gap-3">
         <button 
           onClick={() => window.location.reload()}
-          className="flex items-center gap-1 rounded-md border border-gray-300 px-3 py-1.5 text-sm font-medium text-gray-600 hover:bg-gray-50"
+          className="flex items-center gap-1 rounded-md border border-[#d1cec5] px-3 py-1.5 text-sm font-medium text-[#5d5d5d] hover:bg-[#f7f5f0]"
         >
           <RotateCcw size={14} /> 重置演示
         </button>

@@ -14,11 +14,11 @@ const CardNode = ({ id, data, selected }: NodeProps<NodeData>) => {
   const isInBasket = basketNodeIds.includes(id);
 
   const typeColors: Record<CardType, string> = {
-    role: 'border-blue-500 bg-blue-50',
-    event: 'border-yellow-500 bg-yellow-50',
-    setting: 'border-purple-500 bg-purple-50',
-    plot: 'border-green-500 bg-green-50',
-    chapter: 'border-indigo-500 bg-white',
+    role: 'border-[#cbd5e1] bg-[#eef2f5]',
+    event: 'border-[#e2dcb8] bg-[#f9f7e8]',
+    setting: 'border-[#dcd6e5] bg-[#f2eff5]',
+    plot: 'border-[#cce0cc] bg-[#eff5ef]',
+    chapter: 'border-[#8c3b3b] bg-white',
   };
 
   const typeLabels: Record<CardType, string> = {
@@ -30,36 +30,37 @@ const CardNode = ({ id, data, selected }: NodeProps<NodeData>) => {
   };
 
   const typeLabelColors: Record<CardType, string> = {
-    role: 'bg-blue-500',
-    event: 'bg-yellow-500',
-    setting: 'bg-purple-500',
-    plot: 'bg-green-500',
-    chapter: 'bg-indigo-500',
+    role: 'bg-[#7c92a9] text-white',
+    event: 'bg-[#b8ae7e] text-white',
+    setting: 'bg-[#9a8c9e] text-white',
+    plot: 'bg-[#7a9e7e] text-white',
+    chapter: 'bg-[#8c3b3b] text-white',
   };
 
   const isChapter = data.type === 'chapter';
 
   return (
     <div
-      className={`relative w-64 rounded-lg border-2 shadow-md transition-all ${
-        selected ? 'ring-2 ring-blue-400 ring-offset-2' : ''
+      className={`relative w-64 rounded-sm border shadow-sm transition-all ${
+        selected ? 'ring-2 ring-[#8c3b3b] ring-offset-1' : ''
       } ${typeColors[data.type]} ${isChapter ? 'min-h-[120px]' : ''}`}
+      style={{ boxShadow: '2px 2px 4px rgba(0,0,0,0.05)' }}
     >
       {/* 章节卡片的叠放装饰效果 */}
       {isChapter && (
         <>
-          <div className="absolute -right-1 -top-1 -z-10 h-full w-full rounded-lg border-2 border-indigo-200 bg-white shadow-sm transition-all group-hover:-right-2 group-hover:-top-2"></div>
-          <div className="absolute -right-2 -top-2 -z-20 h-full w-full rounded-lg border-2 border-indigo-100 bg-white shadow-sm transition-all group-hover:-right-4 group-hover:-top-4"></div>
+          <div className="absolute -right-1 -top-1 -z-10 h-full w-full rounded-sm border border-[#8c3b3b] bg-white opacity-60 transition-all group-hover:-right-2 group-hover:-top-2"></div>
+          <div className="absolute -right-2 -top-2 -z-20 h-full w-full rounded-sm border border-[#8c3b3b] bg-white opacity-30 transition-all group-hover:-right-4 group-hover:-top-4"></div>
         </>
       )}
 
-      <div className="flex items-center justify-between border-b border-gray-200 px-3 py-2">
+      <div className="flex items-center justify-between border-b border-black/5 px-3 py-2">
         <div className="flex items-center gap-2">
-          <span className={`rounded px-1.5 py-0.5 text-xs font-bold text-white ${typeLabelColors[data.type]}`}>
+          <span className={`rounded px-1.5 py-0.5 text-xs font-serif ${typeLabelColors[data.type]}`}>
             {isChapter ? <Library size={12} className="inline mr-1" /> : null}
             {typeLabels[data.type]}
           </span>
-          <span className="font-bold text-gray-800 line-clamp-1">{data.title || '未命名'}</span>
+          <span className="font-bold text-[#2c2c2c] line-clamp-1 font-serif">{data.title || '未命名'}</span>
         </div>
         
         <div className="flex items-center gap-1">
@@ -70,7 +71,7 @@ const CardNode = ({ id, data, selected }: NodeProps<NodeData>) => {
                   e.stopPropagation();
                   splitChapter(id);
                 }}
-                className="rounded-full p-1 bg-red-50 text-red-600 hover:bg-red-100 transition-colors"
+                className="rounded-full p-1 bg-[#f5eff0] text-[#8c3b3b] hover:bg-[#eadddd] transition-colors"
                 title="拆分章节"
               >
                 <Ungroup size={14} />
@@ -80,7 +81,7 @@ const CardNode = ({ id, data, selected }: NodeProps<NodeData>) => {
                   e.stopPropagation();
                   setExportNode(id);
                 }}
-                className="rounded-full p-1 bg-indigo-100 text-indigo-600 hover:bg-indigo-200 transition-colors"
+                className="rounded-full p-1 bg-[#eef2f5] text-[#5d6b7c] hover:bg-[#dce3e9] transition-colors"
                 title="导出章节"
               >
                 <Share2 size={14} />
@@ -93,7 +94,7 @@ const CardNode = ({ id, data, selected }: NodeProps<NodeData>) => {
                 toggleBasket(id);
               }}
               className={`rounded-full p-1 transition-colors ${
-                isInBasket ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-400 hover:bg-gray-200'
+                isInBasket ? 'bg-[#eff5ef] text-[#4a5d4a]' : 'bg-[#f7f5f0] text-[#d1cec5] hover:bg-[#e0ded5]'
               }`}
               title={isInBasket ? '从篮子移除' : '加入篮子'}
             >
@@ -114,9 +115,9 @@ const CardNode = ({ id, data, selected }: NodeProps<NodeData>) => {
         )}
 
         {isChapter && data.plotIds && (
-          <div className="mt-3 flex items-center justify-between border-t border-gray-100 pt-2">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">包含情节</span>
-            <span className="rounded-full bg-indigo-100 px-2 py-0.5 text-[10px] font-bold text-indigo-600">
+          <div className="mt-3 flex items-center justify-between border-t border-[#d1cec5] pt-2">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#d1cec5]">包含情节</span>
+            <span className="rounded-full bg-[#eef2f5] px-2 py-0.5 text-[10px] font-bold text-[#5d6b7c]">
               {data.plotIds.length} 张
             </span>
           </div>
